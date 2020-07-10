@@ -2,8 +2,8 @@
 module ExploringMars
   class Constants
     AXIS_MAP = {
-      x_axis: [:north, :south],
-      y_axis: [:east, :west],
+      y_axis: [:north, :south],
+      x_axis: [:east, :west],
     }
 
     DIRECTIONS_MAP = [
