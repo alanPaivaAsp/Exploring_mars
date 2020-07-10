@@ -9,12 +9,16 @@ module ExploringMars
     end
 
     def left
-      @wind_rose_direction = ExploringMars::Constants::DIRECTIONS_MAP[ExploringMars::Constants::DIRECTIONS_MAP.find_index(@wind_rose_direction) - 1]
+      @wind_rose_direction = directions_map[directions_map.find_index(@wind_rose_direction) - 1]
       change_wind_rose_direction_axis_signal
     end
 
     def right
-      @wind_rose_direction = ExploringMars::Constants::DIRECTIONS_MAP[ExploringMars::Constants::DIRECTIONS_MAP.find_index(@wind_rose_direction) + 1]
+      direction = directions_map[directions_map.find_index(@wind_rose_direction) + 1]
+      new_direction = direction.nil? ? directions_map.first : direction
+
+      @wind_rose_direction = new_direction
+
       change_wind_rose_direction_axis_signal
     end
 
@@ -26,6 +30,10 @@ module ExploringMars
 
     def change_wind_rose_direction_axis_signal
       @wind_rose_direction_axis_signal = ExploringMars::Constants::DIRECTION_SIGNAL_MAP[@wind_rose_direction]
+    end
+
+    def directions_map
+      ExploringMars::Constants::DIRECTIONS_MAP
     end
   end
 end
