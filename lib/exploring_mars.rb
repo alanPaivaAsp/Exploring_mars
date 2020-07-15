@@ -32,7 +32,7 @@ spacecraft over the land: ")
         heart_of_gold.left
       end
       if instruction == 'R'
-        heart_of_gold.left
+        heart_of_gold.right
       end
       if instruction == 'M'
         heart_of_gold.move
